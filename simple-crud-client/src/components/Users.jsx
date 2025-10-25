@@ -1,7 +1,11 @@
 import React from 'react'
+import { use } from 'react';
 
 
-const Users = () => {
+const Users = ({usersPromise}) => {
+
+  const initialUsers = use(usersPromise);
+  console.log(initialUsers);
 
   const handleAddUser = e =>{
     e.preventDefault();
