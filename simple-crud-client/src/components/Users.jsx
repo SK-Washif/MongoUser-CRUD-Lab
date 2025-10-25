@@ -27,6 +27,9 @@ const Users = ({usersPromise}) => {
       console.log('data using after creating user in db:', data);
 
       if(data.insertedId){
+        newUser._id = data.insertedID;
+        const newUsers = [...users, newUser];
+        setUsers(newUsers);
         alert('User added Successfully!');
         e.target.reset();
       }
