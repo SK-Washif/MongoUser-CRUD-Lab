@@ -5,9 +5,10 @@ import App from './App.jsx'
 import{
   createBrowserRouter,
   RouterProvider,
-} from 'react-router';
+} from 'react-router-dom';
 import { MainLayout } from './layouts/MainLayout.jsx';
 import UserDetail from './components/UserDetail.jsx';
+import UpdateUser from './components/UpdateUser.jsx';
 
 const router = createBrowserRouter([
   {
@@ -19,7 +20,12 @@ const router = createBrowserRouter([
         path:'/users/:id',
         loader: ({params})=> fetch(`http://localhost:1000/users/${params.id}`),
         element: <UserDetail></UserDetail>
-      }
+      },
+      {
+        path: '/update/:id',
+        loader:({params})=> fetch(`http://localhost:1000/users/${params.id}`),
+        element: <UpdateUser></UpdateUser>
+      },
     ]
 
   },
